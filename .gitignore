@@ -1,0 +1,5 @@
+*.o
+*~
+scratch/*
+todo.org
+*.bdf

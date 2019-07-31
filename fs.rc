@@ -1,0 +1,97 @@
+#include <windows.h>
+#include "resource.h"
+
+#define VER_FILEVERSION             0,0,0,1
+#define VER_FILEVERSION_STR	    "0.0.0.1\0"
+#define VER_COMPANYNAME_STR         "NASA\0"
+#define VER_FILEDESCRIPTION_STR     "Payload Fairing Sizing Application.\0"
+#define VER_LEGALCOPYRIGHT_STR      "Copyright ©2012"
+
+
+// ABOUT the Fairing Sizer (fs) Application
+// http://msdn.microsoft.com/en-us/library/aa381058%28v=vs.85%29.aspx
+
+1 VERSIONINFO
+ FILEVERSION VER_FILEVERSION
+ PRODUCTVERSION VER_FILEVERSION
+ FILEFLAGSMASK VS_FFI_FILEFLAGSMASK
+ FILEFLAGS VS_FF_PRERELEASE
+ FILEOS VOS_NT_WINDOWS32
+ FILETYPE VFT_APP
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904E4"
+        BEGIN
+            VALUE "Company Name",    VER_COMPANYNAME_STR
+            VALUE "FileDescription", VER_FILEDESCRIPTION_STR
+            VALUE "FileVersion",     VER_FILEVERSION_STR
+            VALUE "LegalCopyright",  VER_LEGALCOPYRIGHT_STR
+        END
+    END
+BLOCK "VarFileInfo"
+  BEGIN
+    VALUE "Translation", 0x409, 1252
+  END
+END
+
+
+// The MAIN MENU
+IDR_MAINMENU MENU 
+BEGIN
+    POPUP "&File"
+    BEGIN
+        MENUITEM "&Copy",                       ID_FILE_COPY
+        MENUITEM "&Print",                      ID_FILE_PRINT
+        MENUITEM SEPARATOR
+        MENUITEM "E&xit",                       ID_FILE_EXIT
+    END
+    POPUP "&Help"
+    BEGIN
+        MENUITEM "&About",                      ID_HELP_ABOUT
+    END
+END
+
+
+// The "MAIN" dialog
+IDD_MAINDIALOG DIALOGEX 0, 0, 1000, 900
+STYLE DS_MODALFRAME | WS_POPUP | WS_SYSMENU
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    ICON            IDI_APPICON,IDC_STATIC,7,7,20,20
+END
+
+// Define an Icon
+IDI_ROCKETICON  ICON    DISCARDABLE     "rocket.ico"
+
+// The "ABOUT" dialog
+IDD_ABOUTDIALOG DIALOGEX 0, 0, 200, 75
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "About"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    ICON            IDI_APPICON,IDC_STATIC,7,7,20,20
+    LTEXT           "Payload Fairing Sizing App.",IDC_STATIC,34,7,86,8
+    LTEXT           "©2012 NASA",IDC_STATIC,34,17,68,8
+    DEFPUSHBUTTON   "OK",IDOK,90,46,50,14,WS_GROUP
+END
+
+
+// KEYBOARD ACCELERATOR
+// http://msdn.microsoft.com/en-us/library/ms645526%28v=vs.85%29.aspx
+IDR_ACCELERATOR ACCELERATORS 
+BEGIN
+    "A",            ID_HELP_ABOUT,          VIRTKEY, ALT, NOINVERT
+END
+
+// NASA BITMAP IMAGE
+IDB_BITMAP1 BITMAP "NASA.bmp"
+IDB_BITMAP2 BITMAP "SLS.bmp"
+
+/**
+   Local Variables: **
+   mode:c **
+   compile-command:"windres -i fs.rc -o fs.o" **
+   End: **
+**/

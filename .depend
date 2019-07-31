@@ -1,0 +1,9 @@
+winMain.o: winMain.c resource.h winMenu.h winForms.h winDraw.h
+winForms.o: winForms.c winForms.h resource.h ogive.h calcSurfaceArea.h \
+ calcVolume.h
+winMenu.o: winMenu.c resource.h
+winDraw.o: winDraw.c ogive.h winForms.h calcSurfaceArea.h calcVolume.h \
+ resource.h
+ogive.o: ogive.c
+calcSurfaceArea.o: calcSurfaceArea.c winForms.h ogive.h
+calcVolume.o: calcVolume.c winForms.h ogive.h
