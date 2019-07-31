@@ -5,7 +5,7 @@
 #define VER_FILEVERSION_STR	    "0.0.0.1\0"
 #define VER_COMPANYNAME_STR         "NASA\0"
 #define VER_FILEDESCRIPTION_STR     "Payload Fairing Sizing Application.\0"
-#define VER_LEGALCOPYRIGHT_STR      "Copyright ©2012"
+#define VER_LEGALCOPYRIGHT_STR      "Copyright ©2019"
 
 
 // ABOUT the Fairing Sizer (fs) Application
